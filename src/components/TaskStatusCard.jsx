@@ -11,8 +11,8 @@ const TaskStatusCard = ({ ticket, completeTask }) => {
 
             <button
                 onClick={() => completeTask(ticket)}
-                className="flex-shrink-0 bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white p-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                title="Complete ticket"
+                className="flex-shrink-0 bg-blue-50 text-blue-600 hover:bg-green-500 hover:text-white p-2 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 transform hover:scale-110 active:scale-95 shadow-sm"
+                title="Mark as completed and resolved"
             >
                 <CheckCircle2 size={24} />
             </button>
