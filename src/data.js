@@ -1,110 +1,92 @@
 export const initialTickets = [
     {
-        id: "TCK-1001",
-        title: "Login issue on mobile app",
-        description: "User is unable to login using the latest iOS version. It crashes on the splash screen.",
-        customer: "Alice Smith",
-        priority: "High",
+        id: "1001",
+        title: "Login Issues - Can't Access Account",
+        description: "Customer is unable to log in to their account. They've tried resetting their password multiple times but still...",
+        customer: "John Smith",
+        priority: "HIGH",
         status: "Open",
-        createdAt: "2026-03-01T10:00:00Z"
+        createdAt: "2024-01-15T10:00:00Z"
     },
     {
-        id: "TCK-1002",
-        title: "Payment gateway timeout error",
-        description: "Stripe integration drops connection occasionally resulting in incomplete orders.",
-        customer: "Bob Johnson",
-        priority: "Critical",
+        id: "1002",
+        title: "Payment Failed - Card Declined",
+        description: "Customer attempted to pay using Visa ending 1234 but the payment keeps failing despite sufficient balance.",
+        customer: "Sarah Johnson",
+        priority: "HIGH",
         status: "Open",
-        createdAt: "2026-03-02T14:30:00Z"
+        createdAt: "2024-01-16T14:30:00Z"
     },
     {
-        id: "TCK-1003",
-        title: "Update billing address",
-        description: "Please help me update my billing address on my profile as the UI doesn't save it.",
-        customer: "Charlie Brown",
-        priority: "Low",
-        status: "Open",
-        createdAt: "2026-03-03T09:15:00Z"
+        id: "1003",
+        title: "Unable to Download Invoice",
+        description: "Customer cannot download their January Invoice from the billing section. The download button is...",
+        customer: "Michael Brown",
+        priority: "MEDIUM",
+        status: "In-Progress",
+        createdAt: "2024-01-17T09:15:00Z"
     },
     {
-        id: "TCK-1004",
-        title: "Request for feature: Dark mode",
-        description: "Can we have a dark mode option in the dashboard? It is too bright at night.",
-        customer: "Diana Prince",
-        priority: "Medium",
+        id: "1004",
+        title: "Incorrect Billing Address",
+        description: "Customer's billing address shows a different city. They updated it but it still displays the old one.",
+        customer: "Emily Davis",
+        priority: "LOW",
         status: "Open",
-        createdAt: "2026-03-03T11:45:00Z"
+        createdAt: "2024-01-18T11:45:00Z"
     },
     {
-        id: "TCK-1005",
-        title: "Refund request for Order #9821",
-        description: "I received a damaged item and would like to process a refund immediately.",
-        customer: "Ethan Hunt",
-        priority: "High",
+        id: "1005",
+        title: "App Crash on Launch",
+        description: "Customer reports that the mobile app crashes immediately upon opening on Android 13.",
+        customer: "David Wilson",
+        priority: "HIGH",
         status: "Open",
-        createdAt: "2026-03-03T16:20:00Z"
+        createdAt: "2024-01-19T16:20:00Z"
     },
     {
-        id: "TCK-1006",
-        title: "How to upgrade subscription?",
-        description: "I am trying to upgrade from Pro to Enterprise, but the button is greyed out.",
-        customer: "Fiona Gallagher",
-        priority: "Medium",
-        status: "Open",
-        createdAt: "2026-03-04T08:10:00Z"
+        id: "1006",
+        title: "Refund Not Processed",
+        description: "Customer requested a refund two weeks ago but has not received the amount yet.",
+        customer: "Sophia Taylor",
+        priority: "MEDIUM",
+        status: "In-Progress",
+        createdAt: "2024-01-20T08:10:00Z"
     },
     {
-        id: "TCK-1007",
-        title: "Email notifications not received",
-        description: "I haven't been receiving any weekly digest emails since last month.",
-        customer: "George Miller",
-        priority: "Medium",
+        id: "1007",
+        title: "Two-Factor Authentication Issue",
+        description: "Customer is not receiving 2FA codes on their registered phone number.",
+        customer: "James Anderson",
+        priority: "HIGH",
         status: "Open",
-        createdAt: "2026-03-04T09:05:00Z"
+        createdAt: "2024-01-21T09:05:00Z"
     },
     {
-        id: "TCK-1008",
-        title: "API rate limit exceeded unexpectedly",
-        description: "Our application is hitting 429 Too Many Requests even though we are under the quota.",
-        customer: "Hannah Abbott",
-        priority: "Critical",
+        id: "1008",
+        title: "Unable to Update Profile Picture",
+        description: "Customer tries to upload a new profile picture but gets 'Upload failed' error.",
+        customer: "Olivia Martinez",
+        priority: "LOW",
         status: "Open",
-        createdAt: "2026-03-04T09:30:00Z"
+        createdAt: "2024-01-22T09:30:00Z"
     },
     {
-        id: "TCK-1009",
-        title: "Change account email",
-        description: "I need to migrate my account to my new corporate email address.",
-        customer: "Ian Somerhalder",
-        priority: "Low",
-        status: "Open",
-        createdAt: "2026-02-28T13:40:00Z"
+        id: "1009",
+        title: "Subscription Auto-Renewal",
+        description: "Customer wants to enable auto-renewal for their subscription but the toggle is disabled.",
+        customer: "Liam Thomas",
+        priority: "MEDIUM",
+        status: "In-Progress",
+        createdAt: "2024-01-17T13:40:00Z"
     },
     {
-        id: "TCK-1010",
-        title: "Missing data in report exports",
-        description: "When downloading the CSV report for February, the last column is missing.",
-        customer: "Julia Roberts",
-        priority: "High",
+        id: "1010",
+        title: "Missing Order Confirmation Email",
+        description: "Customer placed an order but didn't receive a confirmation email even though payment succeeded.",
+        customer: "Isabella Garcia",
+        priority: "MEDIUM",
         status: "Open",
-        createdAt: "2026-03-02T10:55:00Z"
-    },
-    {
-        id: "TCK-1011",
-        title: "2FA setup issue",
-        description: "The QR code for setting up two-factor authentication cannot be scanned by Google Authenticator.",
-        customer: "Kevin Hart",
-        priority: "High",
-        status: "Open",
-        createdAt: "2026-03-01T15:25:00Z"
-    },
-    {
-        id: "TCK-1012",
-        title: "Feedback on new dashboard UI",
-        description: "The new layout is slightly confusing for some of our non-technical staff.",
-        customer: "Laura Dern",
-        priority: "Low",
-        status: "Open",
-        createdAt: "2026-03-03T08:50:00Z"
+        createdAt: "2024-01-24T10:55:00Z"
     }
 ];

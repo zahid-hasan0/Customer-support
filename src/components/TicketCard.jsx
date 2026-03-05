@@ -1,59 +1,57 @@
 import React from 'react';
-import { Calendar, User, AlertCircle } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 const TicketCard = ({ ticket, handleAddToTaskStatus }) => {
-    const getPriorityColor = (priority) => {
-        switch (priority) {
-            case 'Critical': return 'bg-red-100 text-red-700 border-red-200';
-            case 'High': return 'bg-orange-100 text-orange-700 border-orange-200';
-            case 'Medium': return 'bg-yellow-100 text-yellow-700 border-yellow-200';
-            case 'Low': return 'bg-green-100 text-green-700 border-green-200';
-            default: return 'bg-gray-100 text-gray-700 border-gray-200';
-        }
-    };
+  const getPriorityColor = (priority) => {
+    switch (priority?.toUpperCase()) {
+      case 'HIGH': return 'text-red-500';
+      case 'MEDIUM': return 'text-yellow-500';
+      case 'LOW': return 'text-green-500';
+      default: return 'text-gray-500';
+    }
+  };
 
-    const formatDate = (dateString) => {
-        const options = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-        return new Date(dateString).toLocaleDateString('en-US', options);
-    };
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  };
 
-    return (
-        <div
-            className="bg-white border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full border-gray-200"
-            onClick={() => handleAddToTaskStatus(ticket)}
-        >
-            <div className="p-5 flex-grow">
-                <div className="flex justify-between items-start mb-3">
-                    <span className="text-xs font-semibold text-gray-500 tracking-wider">
-                        {ticket.id}
-                    </span>
-                    <span className={`text-[10px] font-bold px-2 py-1 uppercase tracking-wider rounded border ${getPriorityColor(ticket.priority)} flex items-center gap-1`}>
-                        <AlertCircle size={10} />
-                        {ticket.priority}
-                    </span>
-                </div>
+  const isHoverable = ticket.status !== 'In-Progress';
 
-                <h3 className="text-lg font-bold text-gray-800 leading-tight mb-2 line-clamp-2">
-                    {ticket.title}
-                </h3>
-
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {ticket.description}
-                </p>
-            </div>
-
-            <div className="bg-gray-50 px-5 py-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
-                <div className="flex items-center gap-1.5 font-medium">
-                    <User size={14} className="text-gray-400" />
-                    {ticket.customer}
-                </div>
-                <div className="flex items-center gap-1.5">
-                    <Calendar size={14} className="text-gray-400" />
-                    {formatDate(ticket.createdAt)}
-                </div>
-            </div>
+  return (
+    <div
+      className={`bg-white rounded-lg shadow-sm border border-gray-100 p-6 flex flex-col min-h-[170px] ${isHoverable ? 'cursor-pointer hover:shadow-md transition-shadow' : ''}`}
+      onClick={() => isHoverable && handleAddToTaskStatus(ticket)}
+    >
+      <div className="flex justify-between items-start mb-2 gap-2">
+        <h3 className="text-[15px] font-bold text-[#1e293b] leading-snug">
+          {ticket.title}
+        </h3>
+        <div className={`px-3 py-1 rounded-full text-[11px] font-semibold flex-shrink-0 flex items-center gap-1.5 
+                    ${ticket.status === 'In-Progress' ? 'bg-[#fef3c7] text-[#92400e]' : 'bg-[#dcfce7] text-[#166534]'}`}>
+          <span className={`w-1.5 h-1.5 rounded-full ${ticket.status === 'In-Progress' ? 'bg-[#d97706]' : 'bg-[#16a34a]'}`}></span>
+          {ticket.status}
         </div>
-    );
+      </div>
+
+      <p className="text-[#64748b] text-[13px] mb-6 leading-relaxed flex-grow">
+        {ticket.description}
+      </p>
+
+      <div className="flex items-center text-[11px] font-semibold text-[#64748b] whitespace-nowrap overflow-hidden text-ellipsis">
+        <span className="text-gray-400 mr-2 shrink-0">#{ticket.id}</span>
+        <span className={`${getPriorityColor(ticket.priority)} mr-auto shrink-0 uppercase tracking-wide`}>
+          {ticket.priority} PRIORITY
+        </span>
+
+        <span className="font-medium mr-3 shrink-0">{ticket.customer}</span>
+        <div className="flex items-center gap-1 shrink-0 font-medium">
+          <Calendar size={13} className="text-gray-400" strokeWidth={2.5} />
+          {formatDate(ticket.createdAt)}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default TicketCard;
