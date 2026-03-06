@@ -1,23 +1,35 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Banner from './components/Banner';
 import TicketCard from './components/TicketCard';
 import TaskStatusCard from './components/TaskStatusCard';
 import Footer from './components/Footer';
-import { initialTickets } from './data';
+import { TicketData } from './data';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [tickets, setTickets] = useState(initialTickets);
+  const [tickets, setTickets] = useState(TicketData);
   const [taskStatusList, setTaskStatusList] = useState([]);
   const [resolvedTickets, setResolvedTickets] = useState([]);
 
   const handleAddToTaskStatus = (ticket) => {
-    const isAlreadyInProgress = taskStatusList.some((t) => t.id === ticket.id);
-    if (!isAlreadyInProgress) {
+    // we use filter to see if this ticket is already in our progress list
+    const checkDuplicate = taskStatusList.filter((t) => t.id === ticket.id);
+
+    if (checkDuplicate.length === 0) {
+      // add the ticket to progress list
       setTaskStatusList([...taskStatusList, ticket]);
-      setTickets(tickets.map(t => t.id === ticket.id ? { ...t, status: 'In-Progress' } : t));
+
+      // we change the status of the ticket in the main list
+      const updatedList = tickets.map((t) => {
+        if (t.id === ticket.id) {
+          return { ...t, status: 'In-Progress' };
+        }
+        return t;
+      });
+      setTickets(updatedList);
+
       toast.info(`Ticket #${ticket.id} added to task status.`);
     } else {
       toast.warning(`Ticket #${ticket.id} is already in progress.`);
@@ -25,11 +37,23 @@ function App() {
   };
 
   const completeTask = (ticket) => {
-    setTaskStatusList(taskStatusList.filter((t) => t.id !== ticket.id));
+    // delete the ticket from the matching list
+    const listAfterDelete = taskStatusList.filter((t) => t.id !== ticket.id);
+    setTaskStatusList(listAfterDelete);
+
+    // add to solved list
     setResolvedTickets([...resolvedTickets, ticket]);
-    setTickets(tickets.filter((t) => t.id !== ticket.id));
+
+    // also remove from the main tickets list
+    const newList = tickets.filter((t) => t.id !== ticket.id);
+    setTickets(newList);
+
     toast.success(`Ticket #${ticket.id} resolved successfully!`);
   };
+
+
+
+
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-[#f7f7f9] text-[#334155]">
@@ -51,14 +75,13 @@ function App() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full">
                 {tickets.map((ticket) => (
                   <TicketCard
-                    key={ticket.id}
-                    ticket={ticket}
+                    key={ticket.id} ticket={ticket}
                     handleAddToTaskStatus={handleAddToTaskStatus}
                   />
                 ))}
               </div>
             ) : (
-              <div className="text-gray-500">
+              <div className="text-gray-700">
                 No tickets available.
               </div>
             )}

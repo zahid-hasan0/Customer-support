@@ -1,4 +1,4 @@
-export const initialTickets = [
+export const TicketData = [
     {
         id: "1001",
         title: "Login Issues - Can't Access Account",
@@ -6,7 +6,7 @@ export const initialTickets = [
         customer: "John Smith",
         priority: "HIGH",
         status: "Open",
-        createdAt: "2024-01-15T10:00:00Z"
+        createdAt: "2026-01-15"
     },
     {
         id: "1002",
@@ -15,7 +15,7 @@ export const initialTickets = [
         customer: "Sarah Johnson",
         priority: "HIGH",
         status: "Open",
-        createdAt: "2024-01-16T14:30:00Z"
+        createdAt: "2026-01-16"
     },
     {
         id: "1003",
@@ -24,7 +24,7 @@ export const initialTickets = [
         customer: "Michael Brown",
         priority: "MEDIUM",
         status: "In-Progress",
-        createdAt: "2024-01-17T09:15:00Z"
+        createdAt: "2026-01-17"
     },
     {
         id: "1004",
@@ -33,7 +33,7 @@ export const initialTickets = [
         customer: "Emily Davis",
         priority: "LOW",
         status: "Open",
-        createdAt: "2024-01-18T11:45:00Z"
+        createdAt: "2026-01-18"
     },
     {
         id: "1005",
@@ -42,7 +42,7 @@ export const initialTickets = [
         customer: "David Wilson",
         priority: "HIGH",
         status: "Open",
-        createdAt: "2024-01-19T16:20:00Z"
+        createdAt: "2026-01-19"
     },
     {
         id: "1006",
@@ -51,7 +51,7 @@ export const initialTickets = [
         customer: "Sophia Taylor",
         priority: "MEDIUM",
         status: "In-Progress",
-        createdAt: "2024-01-20T08:10:00Z"
+        createdAt: "2026-01-20"
     },
     {
         id: "1007",
@@ -60,7 +60,7 @@ export const initialTickets = [
         customer: "James Anderson",
         priority: "HIGH",
         status: "Open",
-        createdAt: "2024-01-21T09:05:00Z"
+        createdAt: "2026-01-21"
     },
     {
         id: "1008",
@@ -69,7 +69,7 @@ export const initialTickets = [
         customer: "Olivia Martinez",
         priority: "LOW",
         status: "Open",
-        createdAt: "2024-01-22T09:30:00Z"
+        createdAt: "2026-01-22"
     },
     {
         id: "1009",
@@ -78,7 +78,7 @@ export const initialTickets = [
         customer: "Liam Thomas",
         priority: "MEDIUM",
         status: "In-Progress",
-        createdAt: "2024-01-17T13:40:00Z"
+        createdAt: "2026-01-17"
     },
     {
         id: "1010",
@@ -87,6 +87,6 @@ export const initialTickets = [
         customer: "Isabella Garcia",
         priority: "MEDIUM",
         status: "Open",
-        createdAt: "2024-01-24T10:55:00Z"
+        createdAt: "2026-01-24"
     }
 ];

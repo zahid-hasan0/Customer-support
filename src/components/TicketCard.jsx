@@ -1,20 +1,19 @@
-import React from 'react';
-import { Calendar } from 'lucide-react';
 
 const TicketCard = ({ ticket, handleAddToTaskStatus }) => {
   const getPriorityColor = (priority) => {
-    switch (priority?.toUpperCase()) {
-      case 'HIGH': return 'text-red-500';
-      case 'MEDIUM': return 'text-yellow-500';
-      case 'LOW': return 'text-green-500';
-      default: return 'text-gray-500';
+    const p = priority?.toUpperCase();
+    if (p === 'HIGH') {
+      return 'text-red-500';
+    } else if (p === 'MEDIUM') {
+      return 'text-yellow-500';
+    } else if (p === 'LOW') {
+      return 'text-green-500';
+    } else {
+      return 'text-gray-500';
     }
   };
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
-  };
+
 
   const isHoverable = ticket.status !== 'In-Progress';
 
@@ -46,8 +45,8 @@ const TicketCard = ({ ticket, handleAddToTaskStatus }) => {
 
         <span className="font-medium mr-3 shrink-0">{ticket.customer}</span>
         <div className="flex items-center gap-1 shrink-0 font-medium">
-          <Calendar size={13} className="text-gray-400" strokeWidth={2.5} />
-          {formatDate(ticket.createdAt)}
+          <i className="fa-regular fa-calendar text-gray-400 text-[12px]"></i>
+          {(ticket.createdAt)}
         </div>
       </div>
     </div>
